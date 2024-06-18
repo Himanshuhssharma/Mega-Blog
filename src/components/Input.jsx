@@ -1,5 +1,6 @@
 import React, { forwardRef, useId } from "react";
 
+// forwardref is used to forward reference to a child component, for ex. if I have to give access of state of input component in the form component, This hook will help to access that.
 const Input = forwardRef(
   ({ label, type = "text", className = "", ...props }, ref) => {
     const id = useId();
