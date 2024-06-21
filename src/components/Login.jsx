@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [register, handleSubmit] = useForm(); // here handlesubmit is an event, so dont take it as a normal variable name
+  const { register, handleSubmit } = useForm(); // here handlesubmit is an event, so dont take it as a normal variable name
   const [err, setErr] = useState("");
 
   const login = async (data) => {

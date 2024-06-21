@@ -36,7 +36,8 @@ export class AuthService {
 
     async getCurrentUser(){
         try {
-            await this.account.get();
+            console.log("Using URL for API call:", config.appwriteURL);
+            return await this.account.get();
         } catch (error) {
             throw error
         }
