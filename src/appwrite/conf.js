@@ -4,7 +4,7 @@ import { Client, ID, Databases, Storage, Query } from "appwrite"
 export class Service{
     client = new Client();
     databases;
-    storage;
+    bucket;
 
     constructor(){
         this.client
@@ -12,7 +12,7 @@ export class Service{
             .setProject(config.appwriteProjectId);
     
         this.databases = new Databases(this.client);
-        this.storage = new Storage(this.client);
+        this.bucket = new Storage(this.client);
     }
 
     async createPost({title, slug, content, featuredImage, status, userId}){

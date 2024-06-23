@@ -9,8 +9,8 @@ const PostForm = ({ post }) => {
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
-        title: post?.slug || "",
-        slug: post?.slug || "",
+        title: post?.title || "",
+        slug: post?.$id || "",
         content: post?.content || "",
         status: post?.status || "active",
       },
@@ -40,7 +40,7 @@ const PostForm = ({ post }) => {
         data.featuredImage = fileId;
         const dbPost = await service.createPost({
           ...data,
-          userId: userData.$id,
+          userId: userData.$id, //error, user data is not coming
         });
 
         if (dbPost) navigate(`/post/${dbPost.$id}`);
