@@ -19,16 +19,16 @@ export class AuthService {
                 // call another method
                 return this.login({email, password});
             } else {
-                return userAccount
+                return userAccount;
             }
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
     async login({email, password}){
         try {
-            return await this.account.createEmailSession(email, password);
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error
         }
@@ -36,7 +36,6 @@ export class AuthService {
 
     async getCurrentUser(){
         try {
-            console.log("Using URL for API call:", config.appwriteURL);
             return await this.account.get();
         } catch (error) {
             throw error
