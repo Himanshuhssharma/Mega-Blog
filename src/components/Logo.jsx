@@ -1,9 +1,13 @@
 import React from "react";
 
-const Logo = ({ width = "100px" }) => {
+const Logo = () => {
   return (
-    <div>
-      <img src="/logo.png" alt="logo" className="w-42 h-12 ml-0" />
+    <div className="ml-0">
+      <img
+        src="/logo.png"
+        alt="logo"
+        className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56 2xl:w-64 h-auto"
+      />
     </div>
   );
 };

@@ -20,15 +20,19 @@ const PostCard = ({ $id, title, featuredImage }) => {
 
   return (
     <Link to={`/post/${$id}`}>
-      <div className="w-full bg-white rounded-xl p-4">
-        <div className="w-full justify-center mb-4">
+      <div className="w-full bg-white rounded-xl p-4 shadow-md">
+        <div className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 flex justify-center items-center overflow-hidden rounded-t-xl">
           {imageURL ? (
-            <img src={imageURL} alt={title} className="rounded-xl" />
+            <img
+              src={imageURL}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
           ) : (
             <p>Loading image...</p>
           )}
         </div>
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-xl font-bold mt-4">{title}</h2>
       </div>
     </Link>
   );
