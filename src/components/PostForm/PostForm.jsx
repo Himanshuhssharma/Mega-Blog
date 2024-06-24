@@ -40,7 +40,7 @@ const PostForm = ({ post }) => {
         data.featuredImage = fileId;
         const dbPost = await service.createPost({
           ...data,
-          userId: userData.$id, //error, user data is not coming
+          userId: userData.$id,
         });
 
         if (dbPost) navigate(`/post/${dbPost.$id}`);
@@ -50,11 +50,13 @@ const PostForm = ({ post }) => {
 
   const slugTransform = useCallback((value) => {
     if (value && typeof value === "string")
-      return value
-        .trim()
-        .toLowerCase()
-        .replace(/^[a-zA-Z\d\s]+/g, "-") //regex values to replace any with a dash
-        .replace(/\s/g, "-");
+      return (
+        value
+          .trim()
+          .toLowerCase()
+          // .replace(/^[a-zA-Z\d\s]+/g, "-") //regex values to replace any with a dash
+          .replace(/\s/g, "-")
+      );
 
     return "";
   }, []);
@@ -67,7 +69,7 @@ const PostForm = ({ post }) => {
     });
 
     return () => {
-      // we get this return in useEffect
+      // we get this return in useEffect by default
       subscription.unsubscribe(); //unmounting for memory management
     };
   }, [watch, slugTransform, setValue]);
