@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Logo} from "../imports";
+import { Logo } from "../imports";
 
 const Footer = () => {
   return (
-    <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
+    <section className="relative overflow-hidden py-10 bg-gray-800 text-white">
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="-m-6 flex flex-wrap">
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
@@ -13,9 +13,7 @@ const Footer = () => {
                 <Logo width="100px" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">
-                  &copy; Copyright 2023. All Rights Reserved by DevUI.
-                </p>
+                <p className="text-sm text-gray-500">&copy; Copyright 2024.</p>
               </div>
             </div>
           </div>
@@ -27,7 +25,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Features
@@ -35,7 +33,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Pricing
@@ -43,7 +41,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Affiliate Program
@@ -51,7 +49,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Press Kit
@@ -68,7 +66,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Account
@@ -76,7 +74,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Help
@@ -84,7 +82,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Contact Us
@@ -92,7 +90,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Customer Support
@@ -109,7 +107,7 @@ const Footer = () => {
               <ul>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Terms &amp; Conditions
@@ -117,7 +115,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Privacy Policy
@@ -125,7 +123,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
+                    className=" text-base font-medium text-white hover:text-gray-500"
                     to="/"
                   >
                     Licensing

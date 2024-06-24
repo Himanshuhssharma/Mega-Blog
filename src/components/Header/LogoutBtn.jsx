@@ -5,11 +5,11 @@ import { logout } from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const LogoutBtn = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const logoutHandler = () => {
     service.logout().then(() => dispatch(logout()));
-    navigate('/')
+    navigate("/");
   };
 
   return (
