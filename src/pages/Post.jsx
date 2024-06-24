@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const Post = () => {
   const [post, setPost] = useState(null);
+  const [imageURL, setImageURL] = useState(""); // Added state for image URL
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -17,10 +18,25 @@ const Post = () => {
   useEffect(() => {
     if (slug) {
       service.getPost(slug).then((post) => {
-        if (post) setPost(post);
-        else navigate("/");
+        if (post) {
+          setPost(post);
+          // Fetching and setting the image URL
+          service
+            .getFilePreview(post.featuredImage)
+            .then((url) => {
+              console.log("Image URL:", url); // Log the image URL for debugging
+              setImageURL(url);
+            })
+            .catch((error) => {
+              console.error("Error fetching image URL:", error);
+            });
+        } else {
+          navigate("/");
+        }
       });
-    } else navigate("/");
+    } else {
+      navigate("/");
+    }
   }, [slug, navigate]);
 
   const deletePost = () => {
@@ -35,13 +51,12 @@ const Post = () => {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img
-            src={service.getFilePreview(post.featuredImage)}
-            alt={post.title}
-            className="rounded-xl"
-          />
-
+        <div className="w-full h-80 flex justify-center mb-4 relative border rounded-xl p-2">
+          {imageURL ? (
+            <img src={imageURL} alt={post.title} className="rounded-xl" />
+          ) : (
+            <p>Loading image...</p>
+          )}
           {isAuthor && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>

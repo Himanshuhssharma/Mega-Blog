@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import service from "../appwrite/conf";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ $id, title, featuredImage }) => {
+  const [imageURL, setImageURL] = useState("");
+
+  useEffect(() => {
+    async function fetchImage() {
+      try {
+        const url = await service.getFilePreview(featuredImage);
+        setImageURL(url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    }
+
+    fetchImage();
+  }, [featuredImage]);
+
   return (
     <Link to={`/post/${$id}`}>
       <div className="w-full bg-gray-100 rounded-xl p-4">
         <div className="w-full justify-center mb-4">
-          <img
-            src={service.getFilePreview(featuredImage)}
-            alt={title}
-            className="rounded-xl"
-          />
+          {imageURL ? (
+            <img src={imageURL} alt={title} className="rounded-xl" />
+          ) : (
+            <p>Loading image...</p>
+          )}
         </div>
         <h2 className="text-xl font-bold">{title}</h2>
       </div>
