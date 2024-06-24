@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const authStatus = useSelector((state) => state.auth.status);
-  const userData = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     service.getPosts([]).then((post) => {
@@ -36,9 +35,6 @@ const Home = () => {
     if (posts.length === 0) {
       return (
         <div className="w-full py-8 mt-4 text-center">
-          <h1>
-            {userData ? "Yes there is Userdata" : "No there is no Userdata"}
-          </h1>
           <Container>
             <div className="flex flex-wrap">
               <div className="p-2 w-full">
@@ -53,9 +49,6 @@ const Home = () => {
     } else {
       return (
         <div className="w-full py-8">
-          <h1>
-            {userData ? "Yes there is Userdata" : "No there is no Userdata"}
-          </h1>
           <Container>
             <div className="flex flex-wrap">
               {posts.map((post) => (
