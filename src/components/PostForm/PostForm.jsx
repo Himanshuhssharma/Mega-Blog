@@ -121,7 +121,7 @@ const PostForm = ({ post }) => {
         <Select
           options={["active", "inactive"]}
           label="Status"
-          className="mb-4"
+          className="mb-4 ml-2 rounded-md text-center align-middle"
           {...register("status", { required: true })}
         />
         <Button

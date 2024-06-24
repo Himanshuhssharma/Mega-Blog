@@ -21,14 +21,12 @@ function App() {
   }, [])
 
   return loading ? (null) : (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray-200'>
-      <div className='w-full block'>
+    <div className='min-h-screen flex flex-col bg-gray-200'>
         <Header />
-        <main>
+        <main className='flex-grow'>
           <Outlet />
         </main>
         <Footer />
-      </div>
     </div>
   )
 }
