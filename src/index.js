@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from "./store/store"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from "./pages/Home"
-import {AuthLayout, Login} from "./components/imports"
+import {Login} from "./components/imports"
 import AddPost from "./pages/AddPost";
 import Signup from './pages/Signup'
 import EditPost from "./pages/EditPost";
@@ -25,44 +25,31 @@ const router = createBrowserRouter([
         {
             path: "/login",
             element: (
-                <AuthLayout authentication={false}>
                     <Login />
-                </AuthLayout>
             ),
         },
         {
             path: "/signup",
             element: (
-                <AuthLayout authentication={false}>
                     <Signup />
-                </AuthLayout>
             ),
         },
         {
             path: "/all-posts",
             element: (
-                <AuthLayout authentication>
-                    {" "}
                     <AllPost />
-                </AuthLayout>
             ),
         },
         {
             path: "/add-post",
             element: (
-                <AuthLayout authentication>
-                    {" "}
                     <AddPost />
-                </AuthLayout>
             ),
         },
         {
             path: "/edit-post/:slug",
             element: (
-                <AuthLayout authentication>
-                    {" "}
                     <EditPost />
-                </AuthLayout>
             ),
         },
         {
