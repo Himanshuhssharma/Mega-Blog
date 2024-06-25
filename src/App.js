@@ -18,7 +18,7 @@ function App() {
       else dispatch(logout())
     })
     .finally(() => setLoading(false))
-  }, [])
+  }, [dispatch])
 
   return loading ? (null) : (
     <div className='min-h-screen flex flex-col bg-gray-200'>
