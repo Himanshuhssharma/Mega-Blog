@@ -30,7 +30,7 @@ export class Service{
                 }
             )
         } catch (error) {
-            throw error
+            console.log("Error in creating a post :", error);
         }
     }
 
@@ -48,7 +48,7 @@ export class Service{
                 }
             )
         } catch (error) {
-            throw error
+            console.log("Error in updating a post :", error);
         }
     }
 
@@ -61,7 +61,7 @@ export class Service{
             )
             return true
         } catch (error) {
-            throw error
+            console.log("Error in deleting a post :", error);
         }
     }
 
@@ -73,7 +73,7 @@ export class Service{
                 slug
             )
         } catch (error) {
-            throw error
+            console.log("Error :", error);
         }
     }
 
@@ -85,7 +85,7 @@ export class Service{
                 queries
             )
         } catch (error) {
-            throw error
+            console.log("Error :", error);
         }
     } // for multiple selections
 
@@ -97,7 +97,7 @@ export class Service{
                 file
             )
         } catch (error) {
-            throw error
+            console.log("Error in uploading a file :", error);
         }
     }
 
@@ -108,7 +108,7 @@ export class Service{
                 fileId
             )
         } catch (error) {
-            throw error
+            console.log("Error in deleting a file :", error);
         }
     }
 
