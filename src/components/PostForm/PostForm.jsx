@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select, RTE } from "../imports";
 import service from "../../appwrite/conf";
@@ -18,6 +18,8 @@ const PostForm = ({ post }) => {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
+  const [imageUrl, setImageUrl] = useState("");
+
   const submit = async (data) => {
     if (post) {
       const file = data.image[0] ? service.uploadFile(data.image[0]) : null;
@@ -74,6 +76,17 @@ const PostForm = ({ post }) => {
     };
   }, [watch, slugTransform, setValue]);
 
+  useEffect(() => {
+    const fetchImage = async () => {
+      if (post?.featuredImage) {
+        const url = await service.getFilePreview(post.featuredImage);
+        setImageUrl(url);
+      }
+    };
+
+    fetchImage();
+  }, [post]);
+
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
@@ -109,13 +122,9 @@ const PostForm = ({ post }) => {
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image", { required: !post })}
         />
-        {post && (
+        {post && imageUrl && (
           <div className="w-full mb-4">
-            <img
-              src={service.getFilePreview(post.featuredImage)}
-              alt={post.title}
-              className="rounded-lg"
-            />
+            <img src={imageUrl} alt={post.title} className="rounded-lg" />
           </div>
         )}
         <Select
